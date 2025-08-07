@@ -1,0 +1,12 @@
+name: dp100-inference-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pandas
+  - numpy
+  - scikit-learn
+  - pip:
+      - azureml-defaults
+      - joblib
