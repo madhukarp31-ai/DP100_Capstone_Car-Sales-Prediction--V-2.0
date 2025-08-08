@@ -1,0 +1,31 @@
+name: Azure ML Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install azure-ai-ml azure-identity
+
+    - name: Deploy model to Azure ML
+      run: |
+        python deploy_model.py
+      env:
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+        WORKSPACE_NAME: ${{ secrets.WORKSPACE_NAME }}
