@@ -6,7 +6,7 @@ This project is part of the **DP-100: Designing and Implementing a Data Science 
 
 ## 🧠 Project Objective
 
-To build, train, evaluate, register, and optionally deploy a regression model that predicts car prices using Azure Machine Learning services, Python, and scikit-learn.
+To build, train, evaluate, register, and optionally deploy a regression model that predicts car prices using Azure Machine Learning services, Python, and Scikit-learn.
 
 ---
 
@@ -36,10 +36,23 @@ To build, train, evaluate, register, and optionally deploy a regression model th
 - Attempted deployment to **Azure Container Instance (ACI)**  
   - ⚠️ Deployment was skipped due to **Azure trial subscription limitations**
 
-### ✅ Bonus: GitHub Version Control Setup
-- Prepared files for version control  
-- Initialized Git repository and committed all project files  
-- GitHub push pending or completed manually
+---
+
+## ⚙️ Phase 4: CI/CD with GitHub Actions (MLOps Automation)
+
+Integrated a GitHub Actions workflow to automate model training and registration via Azure ML SDK v2:
+
+- ✅ Created `.github/workflows/azureml_train_register.yml`
+- ✅ Configured the pipeline to:
+  - Authenticate with Azure using secrets
+  - Submit training job to Azure ML
+  - Optionally register the model to the workspace
+- ✅ Secrets configured in GitHub:
+  - `AZURE_CREDENTIALS`
+  - `AZURE_SUBSCRIPTION_ID`
+  - `AZURE_RESOURCE_GROUP`
+  - `AZURE_WORKSPACE_NAME`
+- Manual trigger enabled using `workflow_dispatch` event
 
 ---
 
@@ -50,9 +63,22 @@ To build, train, evaluate, register, and optionally deploy a regression model th
 - **Pandas**, **NumPy**, **Scikit-learn**, **Matplotlib**, **Seaborn**  
 - **Jupyter Notebooks**  
 - **Azure CLI / az ml**  
-- **Git & GitHub**
+- **Git & GitHub**  
+- **GitHub Actions** for CI/CD automation
 
 ---
 
+## 🔗 Repository
+
+GitHub: [DP100_Capstone_Car-Sales-Prediction--V-2.0](https://github.com/madhukarp31-ai/DP100_Capstone_Car-Sales-Prediction--V-2.0)
+
+---
+
+## 📌 Status
+
+✅ Development completed  
+🚧 Deployment testing pending Azure subscription upgrade  
+✅ GitHub Actions pipeline configured  
+📝 Release versioning will follow after successful end-to-end testing
 
 
